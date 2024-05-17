@@ -8,8 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 /**
@@ -26,7 +27,6 @@ public class Product implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
     private String name;
     private String productId;
     private Integer Inventory;//库存
@@ -40,17 +40,7 @@ public class Product implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date initTime;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", productId='" + productId + '\'' +
-                ", Inventory=" + Inventory +
-                ", sales=" + sales +
-                ", parts='" + parts + '\'' +
-                ", productionTime=" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(productionTime) +
-                ", initTime=" +new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(initTime)  +
-                '}';
+    public Integer getId() {
+        return id;
     }
 }

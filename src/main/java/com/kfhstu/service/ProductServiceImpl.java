@@ -5,6 +5,11 @@ import com.kfhstu.beans.Product;
 import com.kfhstu.mapper.ProductMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * @author kivy0000
@@ -15,4 +20,22 @@ public class ProductServiceImpl
         extends ServiceImpl<ProductMapper, Product>
         implements ProductService {
 
+    @Resource
+    private ProductMapper productMapper;
+
+    /**
+     * 添加产品
+     *
+     * @param product 产品
+     * @return 成功 > 0，否则 < 0
+     */
+    @Override
+    public Integer insertSelective(Product product) {
+        try {
+            productMapper.insertSelective(product);
+        } catch (Exception e) {
+            Logger.getLogger("com.kfhstu.service.insertSelective.38").log(Level.SEVERE, "sql出现异常，请检查" + e.getMessage());
+        }
+        return Optional.ofNullable(product.getId()).orElse(-1);
+    }
 }

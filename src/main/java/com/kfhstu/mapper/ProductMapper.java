@@ -10,4 +10,6 @@ public interface ProductMapper extends BaseMapper<Product> {
 
     //可以使用BaseMapper的方法，也可以自定义方法
 
+    Integer insertSelective(Product product);
+
 }

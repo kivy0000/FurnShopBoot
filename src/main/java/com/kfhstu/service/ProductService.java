@@ -7,4 +7,6 @@ import com.kfhstu.beans.Product;
  *
  */
 public interface ProductService extends IService<Product> {
+
+    Integer insertSelective(Product product);
 }

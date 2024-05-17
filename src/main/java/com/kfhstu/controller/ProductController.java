@@ -17,19 +17,25 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
-    //测试项目
+    /**
+     * 测试
+     */
     @RequestMapping("/")
     public List<Product> index() {
         return productService.list();
     }
 
-    //查询所有设备
+    /**
+     * 查询所有设备
+     */
     @GetMapping("getAll")
     public List<Product> getAllProduct() {
         return productService.list();
     }
 
-    //添加设备，post
+    /**
+     * 选择性添加设备，post
+     */
     @PostMapping("/addProduct")
     public Integer addProduct(@RequestBody Product product) {
         try {

@@ -24,9 +24,7 @@ public class ProductServiceImpl
     private ProductMapper productMapper;
 
     /**
-     * 添加产品
-     *
-     * @param product 产品
+     * 选择性添加产品
      * @return 成功 > 0，否则 < 0
      */
     @Override

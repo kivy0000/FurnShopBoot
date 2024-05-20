@@ -19,6 +19,7 @@ public class ProductController {
 
     /**
      * 测试
+     *
      */
     @RequestMapping("/")
     public List<Product> index() {
@@ -44,5 +45,22 @@ public class ProductController {
             e.printStackTrace();
         }
         return productService.insertSelective(product);
+    }
+
+    /**
+     * 根据ID删除项目
+     */
+    @DeleteMapping("/deleteProduct")
+    public Integer deleteProduct(@RequestBody Product product){
+        return productService.removeById(product.getId())?1:-1;
+//        return productService.deleteById(product);
+    }
+    /**
+     * 根据批量删除项目
+     */
+    @DeleteMapping("/deleteMoreProduct")
+    public Integer deleteMoreProduct(@RequestBody List<Integer> ids){
+        boolean b = productService.removeByIds(ids);
+        return b?1:-1;
     }
 }

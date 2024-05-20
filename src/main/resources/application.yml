@@ -24,6 +24,10 @@ spring:
         enabled: true
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

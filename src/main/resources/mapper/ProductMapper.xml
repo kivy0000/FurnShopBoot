@@ -25,4 +25,17 @@
             <if test="initTime != null">#{initTime,jdbcType=TIMESTAMP},</if>
         </trim>
     </insert>
+    <update id="updateSelective">
+        update product_shop
+        <set>
+            <if test="name != null">name=#{name,jdbcType=VARCHAR},</if>
+            <if test="productId != null">product_id=#{productId,jdbcType=VARCHAR},</if>
+            <if test="Inventory != null">inventory=#{Inventory,jdbcType=NUMERIC},</if>
+            <if test="sales != null">sales=#{sales,jdbcType=NUMERIC},</if>
+            <if test="parts != null">parts=#{parts,jdbcType=VARCHAR},</if>
+            <if test="productionTime != null">production_time=#{productionTime,jdbcType=TIMESTAMP},</if>
+            <if test="initTime != null">init_time=#{initTime,jdbcType=TIMESTAMP},</if>
+        </set>
+        where id = #{id,jdbcType=NUMERIC}
+    </update>
 </mapper>

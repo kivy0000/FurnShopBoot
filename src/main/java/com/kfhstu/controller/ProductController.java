@@ -86,9 +86,14 @@ public class ProductController {
     }
 
 
+    /**
+     * 选择性修改，如果没有修改，返回warning无修改
+     */
     @PutMapping("/editProduct")
     public Result editProduct(@RequestBody Product product) {
-        productService.updateSelective(product);
-        return Result.success();
+        return productService.updateSelective(product) > 0 ? Result.success() : Result.warning();
     }
+
+    //TODO 从分页开始看，注意lambada
+
 }

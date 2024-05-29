@@ -58,7 +58,7 @@ public class Result<T> {
 
     public static Result warning() {
         Result result = new Result<>();
-        result.setCode("400");
+        result.setCode("401");
         result.setMsg("warning");
         return result;
     }

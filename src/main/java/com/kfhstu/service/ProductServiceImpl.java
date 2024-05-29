@@ -1,8 +1,8 @@
 package com.kfhstu.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.kfhstu.MySqlException;
 import com.kfhstu.beans.Product;
 import com.kfhstu.mapper.ProductMapper;
 import org.springframework.stereotype.Service;
@@ -39,6 +39,7 @@ public class ProductServiceImpl
             productMapper.insertSelective(product);
         } catch (Exception e) {
             Logger.getLogger("com.kfhstu.service.insertSelective.38").log(Level.SEVERE, "sql出现异常，请检查" + e.getMessage());
+            throw new MySqlException();
         }
         return Optional.ofNullable(product.getId()).orElse(-1);
     }

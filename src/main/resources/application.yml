@@ -24,6 +24,7 @@ spring:
         enabled: true
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+    driver-class-name: com.mysql.jdbc.Driver
   mvc:
     hiddenmethod:
       filter:
